@@ -1,0 +1,396 @@
+#include "plugify_plugin_deadlock_sdk.hpp"
+
+plugify_plugin_deadlock_sdk::_AddServerCommand __plugify_plugin_deadlock_sdk_AddServerCommand = nullptr;
+
+plugify_plugin_deadlock_sdk::_AddClientCommand __plugify_plugin_deadlock_sdk_AddClientCommand = nullptr;
+
+plugify_plugin_deadlock_sdk::_AddChatCommand __plugify_plugin_deadlock_sdk_AddChatCommand = nullptr;
+
+plugify_plugin_deadlock_sdk::_AddConsoleCommand __plugify_plugin_deadlock_sdk_AddConsoleCommand = nullptr;
+
+plugify_plugin_deadlock_sdk::_RemoveCommand __plugify_plugin_deadlock_sdk_RemoveCommand = nullptr;
+
+plugify_plugin_deadlock_sdk::_ServerCommand __plugify_plugin_deadlock_sdk_ServerCommand = nullptr;
+
+plugify_plugin_deadlock_sdk::_ExecuteCommandAsPlayer __plugify_plugin_deadlock_sdk_ExecuteCommandAsPlayer = nullptr;
+
+plugify_plugin_deadlock_sdk::_ClientCommand __plugify_plugin_deadlock_sdk_ClientCommand = nullptr;
+
+plugify_plugin_deadlock_sdk::_PrintToChat __plugify_plugin_deadlock_sdk_PrintToChat = nullptr;
+
+plugify_plugin_deadlock_sdk::_PrintToChatAll __plugify_plugin_deadlock_sdk_PrintToChatAll = nullptr;
+
+plugify_plugin_deadlock_sdk::_PrintToConsole __plugify_plugin_deadlock_sdk_PrintToConsole = nullptr;
+
+plugify_plugin_deadlock_sdk::_PrintToConsoleAll __plugify_plugin_deadlock_sdk_PrintToConsoleAll = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetPlayerController __plugify_plugin_deadlock_sdk_GetPlayerController = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetPlayerPawn __plugify_plugin_deadlock_sdk_GetPlayerPawn = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetPlayerSlot __plugify_plugin_deadlock_sdk_GetPlayerSlot = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetPlayerName __plugify_plugin_deadlock_sdk_GetPlayerName = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetSteamID __plugify_plugin_deadlock_sdk_GetSteamID = nullptr;
+
+plugify_plugin_deadlock_sdk::_IsClientAuthenticated __plugify_plugin_deadlock_sdk_IsClientAuthenticated = nullptr;
+
+plugify_plugin_deadlock_sdk::_IsClientConnected __plugify_plugin_deadlock_sdk_IsClientConnected = nullptr;
+
+plugify_plugin_deadlock_sdk::_IsFakeClient __plugify_plugin_deadlock_sdk_IsFakeClient = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateFakeClient __plugify_plugin_deadlock_sdk_CreateFakeClient = nullptr;
+
+plugify_plugin_deadlock_sdk::_DisconnectClient __plugify_plugin_deadlock_sdk_DisconnectClient = nullptr;
+
+plugify_plugin_deadlock_sdk::_KickClient __plugify_plugin_deadlock_sdk_KickClient = nullptr;
+
+plugify_plugin_deadlock_sdk::_ChangeTeam __plugify_plugin_deadlock_sdk_ChangeTeam = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetPlayerPing __plugify_plugin_deadlock_sdk_GetPlayerPing = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetPlayerTimeConnected __plugify_plugin_deadlock_sdk_GetPlayerTimeConnected = nullptr;
+
+plugify_plugin_deadlock_sdk::_SelectHero __plugify_plugin_deadlock_sdk_SelectHero = nullptr;
+
+plugify_plugin_deadlock_sdk::_ResetHero __plugify_plugin_deadlock_sdk_ResetHero = nullptr;
+
+plugify_plugin_deadlock_sdk::_PrecacheHero __plugify_plugin_deadlock_sdk_PrecacheHero = nullptr;
+
+plugify_plugin_deadlock_sdk::_ForceRespawn __plugify_plugin_deadlock_sdk_ForceRespawn = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetHeroData __plugify_plugin_deadlock_sdk_GetHeroData = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetHeroName __plugify_plugin_deadlock_sdk_GetHeroName = nullptr;
+
+plugify_plugin_deadlock_sdk::_AddAbility __plugify_plugin_deadlock_sdk_AddAbility = nullptr;
+
+plugify_plugin_deadlock_sdk::_RemoveAbility __plugify_plugin_deadlock_sdk_RemoveAbility = nullptr;
+
+plugify_plugin_deadlock_sdk::_RemoveAbilityByEntity __plugify_plugin_deadlock_sdk_RemoveAbilityByEntity = nullptr;
+
+plugify_plugin_deadlock_sdk::_FindAbilityByName __plugify_plugin_deadlock_sdk_FindAbilityByName = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetAbilityBySlot __plugify_plugin_deadlock_sdk_GetAbilityBySlot = nullptr;
+
+plugify_plugin_deadlock_sdk::_ExecuteAbility __plugify_plugin_deadlock_sdk_ExecuteAbility = nullptr;
+
+plugify_plugin_deadlock_sdk::_ToggleActivate __plugify_plugin_deadlock_sdk_ToggleActivate = nullptr;
+
+plugify_plugin_deadlock_sdk::_ResetAbilityCooldown __plugify_plugin_deadlock_sdk_ResetAbilityCooldown = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetAbilityMaxCharges __plugify_plugin_deadlock_sdk_GetAbilityMaxCharges = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetUpgradeBits __plugify_plugin_deadlock_sdk_SetUpgradeBits = nullptr;
+
+plugify_plugin_deadlock_sdk::_AddItem __plugify_plugin_deadlock_sdk_AddItem = nullptr;
+
+plugify_plugin_deadlock_sdk::_SellItem __plugify_plugin_deadlock_sdk_SellItem = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetItemImbueEffects __plugify_plugin_deadlock_sdk_GetItemImbueEffects = nullptr;
+
+plugify_plugin_deadlock_sdk::_CanImbueAbility __plugify_plugin_deadlock_sdk_CanImbueAbility = nullptr;
+
+plugify_plugin_deadlock_sdk::_ImbueAbility __plugify_plugin_deadlock_sdk_ImbueAbility = nullptr;
+
+plugify_plugin_deadlock_sdk::_ModifyCurrency __plugify_plugin_deadlock_sdk_ModifyCurrency = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetCurrency __plugify_plugin_deadlock_sdk_GetCurrency = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateTimer __plugify_plugin_deadlock_sdk_CreateTimer = nullptr;
+
+plugify_plugin_deadlock_sdk::_KillTimer __plugify_plugin_deadlock_sdk_KillTimer = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConfigString __plugify_plugin_deadlock_sdk_GetConfigString = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConfigInt __plugify_plugin_deadlock_sdk_GetConfigInt = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConfigBool __plugify_plugin_deadlock_sdk_GetConfigBool = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConfigFloat __plugify_plugin_deadlock_sdk_GetConfigFloat = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetGameState __plugify_plugin_deadlock_sdk_GetGameState = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetMatchTime __plugify_plugin_deadlock_sdk_GetMatchTime = nullptr;
+
+plugify_plugin_deadlock_sdk::_ChangeGameState __plugify_plugin_deadlock_sdk_ChangeGameState = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetWaitingForPlayersRoster __plugify_plugin_deadlock_sdk_SetWaitingForPlayersRoster = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetMatchStartOnAnyMap __plugify_plugin_deadlock_sdk_SetMatchStartOnAnyMap = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetMatchStartOnAnyMap __plugify_plugin_deadlock_sdk_GetMatchStartOnAnyMap = nullptr;
+
+plugify_plugin_deadlock_sdk::_RegisterGameEvent __plugify_plugin_deadlock_sdk_RegisterGameEvent = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateGameEvent __plugify_plugin_deadlock_sdk_CreateGameEvent = nullptr;
+
+plugify_plugin_deadlock_sdk::_FireGameEvent __plugify_plugin_deadlock_sdk_FireGameEvent = nullptr;
+
+plugify_plugin_deadlock_sdk::_FreeGameEvent __plugify_plugin_deadlock_sdk_FreeGameEvent = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetBool __plugify_plugin_deadlock_sdk_GameEventGetBool = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetInt __plugify_plugin_deadlock_sdk_GameEventGetInt = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetFloat __plugify_plugin_deadlock_sdk_GameEventGetFloat = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetString __plugify_plugin_deadlock_sdk_GameEventGetString = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetUint64 __plugify_plugin_deadlock_sdk_GameEventGetUint64 = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventSetBool __plugify_plugin_deadlock_sdk_GameEventSetBool = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventSetInt __plugify_plugin_deadlock_sdk_GameEventSetInt = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventSetFloat __plugify_plugin_deadlock_sdk_GameEventSetFloat = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventSetString __plugify_plugin_deadlock_sdk_GameEventSetString = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetPlayerSlot __plugify_plugin_deadlock_sdk_GameEventGetPlayerSlot = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetPlayerPawn __plugify_plugin_deadlock_sdk_GameEventGetPlayerPawn = nullptr;
+
+plugify_plugin_deadlock_sdk::_GameEventGetPlayerController __plugify_plugin_deadlock_sdk_GameEventGetPlayerController = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetMapName __plugify_plugin_deadlock_sdk_GetMapName = nullptr;
+
+plugify_plugin_deadlock_sdk::_IsMapValid __plugify_plugin_deadlock_sdk_IsMapValid = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetServerKeyValue __plugify_plugin_deadlock_sdk_SetServerKeyValue = nullptr;
+
+plugify_plugin_deadlock_sdk::_ClearServerKeyValues __plugify_plugin_deadlock_sdk_ClearServerKeyValues = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetServerAddons __plugify_plugin_deadlock_sdk_SetServerAddons = nullptr;
+
+plugify_plugin_deadlock_sdk::_AddFileSystemSearchPath __plugify_plugin_deadlock_sdk_AddFileSystemSearchPath = nullptr;
+
+plugify_plugin_deadlock_sdk::_HasCommandLineParm __plugify_plugin_deadlock_sdk_HasCommandLineParm = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetConnectRejectReason __plugify_plugin_deadlock_sdk_SetConnectRejectReason = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetGlobalVars __plugify_plugin_deadlock_sdk_GetGlobalVars = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetGameTime __plugify_plugin_deadlock_sdk_GetGameTime = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetGameTickCount __plugify_plugin_deadlock_sdk_GetGameTickCount = nullptr;
+
+plugify_plugin_deadlock_sdk::_FindConVar __plugify_plugin_deadlock_sdk_FindConVar = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateConVar __plugify_plugin_deadlock_sdk_CreateConVar = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConVarInt __plugify_plugin_deadlock_sdk_GetConVarInt = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConVarFloat __plugify_plugin_deadlock_sdk_GetConVarFloat = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConVarString __plugify_plugin_deadlock_sdk_GetConVarString = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetConVarBool __plugify_plugin_deadlock_sdk_GetConVarBool = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetConVarInt __plugify_plugin_deadlock_sdk_SetConVarInt = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetConVarFloat __plugify_plugin_deadlock_sdk_SetConVarFloat = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetConVarString __plugify_plugin_deadlock_sdk_SetConVarString = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateDamageInfo __plugify_plugin_deadlock_sdk_CreateDamageInfo = nullptr;
+
+plugify_plugin_deadlock_sdk::_DestroyDamageInfo __plugify_plugin_deadlock_sdk_DestroyDamageInfo = nullptr;
+
+plugify_plugin_deadlock_sdk::_TakeDamage __plugify_plugin_deadlock_sdk_TakeDamage = nullptr;
+
+plugify_plugin_deadlock_sdk::_ApplyDamage __plugify_plugin_deadlock_sdk_ApplyDamage = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetMaxHealth __plugify_plugin_deadlock_sdk_GetMaxHealth = nullptr;
+
+plugify_plugin_deadlock_sdk::_Heal __plugify_plugin_deadlock_sdk_Heal = nullptr;
+
+plugify_plugin_deadlock_sdk::_AddModifier __plugify_plugin_deadlock_sdk_AddModifier = nullptr;
+
+plugify_plugin_deadlock_sdk::_RemoveModifier __plugify_plugin_deadlock_sdk_RemoveModifier = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateEntityByName __plugify_plugin_deadlock_sdk_CreateEntityByName = nullptr;
+
+plugify_plugin_deadlock_sdk::_QueueSpawnEntity __plugify_plugin_deadlock_sdk_QueueSpawnEntity = nullptr;
+
+plugify_plugin_deadlock_sdk::_ExecuteQueuedCreation __plugify_plugin_deadlock_sdk_ExecuteQueuedCreation = nullptr;
+
+plugify_plugin_deadlock_sdk::_RemoveEntity __plugify_plugin_deadlock_sdk_RemoveEntity = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetEntityByIndex __plugify_plugin_deadlock_sdk_GetEntityByIndex = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetEntityFromHandle __plugify_plugin_deadlock_sdk_GetEntityFromHandle = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetEntityHandle __plugify_plugin_deadlock_sdk_GetEntityHandle = nullptr;
+
+plugify_plugin_deadlock_sdk::_FindEntityByName __plugify_plugin_deadlock_sdk_FindEntityByName = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetEntityDesignerName __plugify_plugin_deadlock_sdk_GetEntityDesignerName = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetEntityClassname __plugify_plugin_deadlock_sdk_GetEntityClassname = nullptr;
+
+plugify_plugin_deadlock_sdk::_Teleport __plugify_plugin_deadlock_sdk_Teleport = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetModel __plugify_plugin_deadlock_sdk_SetModel = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetModelName __plugify_plugin_deadlock_sdk_GetModelName = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetScale __plugify_plugin_deadlock_sdk_SetScale = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetMoveType __plugify_plugin_deadlock_sdk_SetMoveType = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetGravityScale __plugify_plugin_deadlock_sdk_SetGravityScale = nullptr;
+
+plugify_plugin_deadlock_sdk::_EntityDerivesFrom __plugify_plugin_deadlock_sdk_EntityDerivesFrom = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetSchemaFieldOffset __plugify_plugin_deadlock_sdk_GetSchemaFieldOffset = nullptr;
+
+plugify_plugin_deadlock_sdk::_NotifyStateChanged __plugify_plugin_deadlock_sdk_NotifyStateChanged = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetSchemaString __plugify_plugin_deadlock_sdk_SetSchemaString = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetSchemaClassSize __plugify_plugin_deadlock_sdk_GetSchemaClassSize = nullptr;
+
+plugify_plugin_deadlock_sdk::_EmitSound __plugify_plugin_deadlock_sdk_EmitSound = nullptr;
+
+plugify_plugin_deadlock_sdk::_TakeSoundEventGuid __plugify_plugin_deadlock_sdk_TakeSoundEventGuid = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateParticle __plugify_plugin_deadlock_sdk_CreateParticle = nullptr;
+
+plugify_plugin_deadlock_sdk::_DestroyParticle __plugify_plugin_deadlock_sdk_DestroyParticle = nullptr;
+
+plugify_plugin_deadlock_sdk::_PrecacheResource __plugify_plugin_deadlock_sdk_PrecacheResource = nullptr;
+
+plugify_plugin_deadlock_sdk::_PrecacheModel __plugify_plugin_deadlock_sdk_PrecacheModel = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateWorldText __plugify_plugin_deadlock_sdk_CreateWorldText = nullptr;
+
+plugify_plugin_deadlock_sdk::_SetWorldTextMessage __plugify_plugin_deadlock_sdk_SetWorldTextMessage = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateBeam __plugify_plugin_deadlock_sdk_CreateBeam = nullptr;
+
+plugify_plugin_deadlock_sdk::_CreateZone __plugify_plugin_deadlock_sdk_CreateZone = nullptr;
+
+plugify_plugin_deadlock_sdk::_DestroyZone __plugify_plugin_deadlock_sdk_DestroyZone = nullptr;
+
+plugify_plugin_deadlock_sdk::_LineTrace __plugify_plugin_deadlock_sdk_LineTrace = nullptr;
+
+plugify_plugin_deadlock_sdk::_NpcMoveTo __plugify_plugin_deadlock_sdk_NpcMoveTo = nullptr;
+
+plugify_plugin_deadlock_sdk::_NpcStopMoving __plugify_plugin_deadlock_sdk_NpcStopMoving = nullptr;
+
+plugify_plugin_deadlock_sdk::_NpcSetEnemy __plugify_plugin_deadlock_sdk_NpcSetEnemy = nullptr;
+
+plugify_plugin_deadlock_sdk::_NpcSetState __plugify_plugin_deadlock_sdk_NpcSetState = nullptr;
+
+plugify_plugin_deadlock_sdk::_NpcCreateTrooper __plugify_plugin_deadlock_sdk_NpcCreateTrooper = nullptr;
+
+plugify_plugin_deadlock_sdk::_NavGetNearestPoint __plugify_plugin_deadlock_sdk_NavGetNearestPoint = nullptr;
+
+plugify_plugin_deadlock_sdk::_NavGetGroundHeight __plugify_plugin_deadlock_sdk_NavGetGroundHeight = nullptr;
+
+plugify_plugin_deadlock_sdk::_BotCreate __plugify_plugin_deadlock_sdk_BotCreate = nullptr;
+
+plugify_plugin_deadlock_sdk::_BotGetBrain __plugify_plugin_deadlock_sdk_BotGetBrain = nullptr;
+
+plugify_plugin_deadlock_sdk::_BotGetPawn __plugify_plugin_deadlock_sdk_BotGetPawn = nullptr;
+
+plugify_plugin_deadlock_sdk::_BotSetLane __plugify_plugin_deadlock_sdk_BotSetLane = nullptr;
+
+plugify_plugin_deadlock_sdk::_BotGetLane __plugify_plugin_deadlock_sdk_BotGetLane = nullptr;
+
+plugify_plugin_deadlock_sdk::_AcceptInput __plugify_plugin_deadlock_sdk_AcceptInput = nullptr;
+
+plugify_plugin_deadlock_sdk::_SendNetMessage __plugify_plugin_deadlock_sdk_SendNetMessage = nullptr;
+
+plugify_plugin_deadlock_sdk::_GetNetMessageName __plugify_plugin_deadlock_sdk_GetNetMessageName = nullptr;
+
+plugify_plugin_deadlock_sdk::_KV3Create __plugify_plugin_deadlock_sdk_KV3Create = nullptr;
+
+plugify_plugin_deadlock_sdk::_KV3Destroy __plugify_plugin_deadlock_sdk_KV3Destroy = nullptr;
+
+plugify_plugin_deadlock_sdk::_KV3SetString __plugify_plugin_deadlock_sdk_KV3SetString = nullptr;
+
+plugify_plugin_deadlock_sdk::_KV3SetBool __plugify_plugin_deadlock_sdk_KV3SetBool = nullptr;
+
+plugify_plugin_deadlock_sdk::_KV3SetInt __plugify_plugin_deadlock_sdk_KV3SetInt = nullptr;
+
+plugify_plugin_deadlock_sdk::_KV3SetFloat __plugify_plugin_deadlock_sdk_KV3SetFloat = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnModifyCurrency_Register __plugify_plugin_deadlock_sdk_OnModifyCurrency_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnModifyCurrency_Unregister __plugify_plugin_deadlock_sdk_OnModifyCurrency_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnTakeDamage_Register __plugify_plugin_deadlock_sdk_OnTakeDamage_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnTakeDamage_Unregister __plugify_plugin_deadlock_sdk_OnTakeDamage_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnClientConnect_Register __plugify_plugin_deadlock_sdk_OnClientConnect_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnClientConnect_Unregister __plugify_plugin_deadlock_sdk_OnClientConnect_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnClientPutInServer_Register __plugify_plugin_deadlock_sdk_OnClientPutInServer_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnClientPutInServer_Unregister __plugify_plugin_deadlock_sdk_OnClientPutInServer_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnClientDisconnect_Register __plugify_plugin_deadlock_sdk_OnClientDisconnect_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnClientDisconnect_Unregister __plugify_plugin_deadlock_sdk_OnClientDisconnect_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnGameFrame_Register __plugify_plugin_deadlock_sdk_OnGameFrame_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnGameFrame_Unregister __plugify_plugin_deadlock_sdk_OnGameFrame_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityCreated_Register __plugify_plugin_deadlock_sdk_OnEntityCreated_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityCreated_Unregister __plugify_plugin_deadlock_sdk_OnEntityCreated_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntitySpawned_Register __plugify_plugin_deadlock_sdk_OnEntitySpawned_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntitySpawned_Unregister __plugify_plugin_deadlock_sdk_OnEntitySpawned_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityDeleted_Register __plugify_plugin_deadlock_sdk_OnEntityDeleted_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityDeleted_Unregister __plugify_plugin_deadlock_sdk_OnEntityDeleted_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnGameStateChanged_Register __plugify_plugin_deadlock_sdk_OnGameStateChanged_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnGameStateChanged_Unregister __plugify_plugin_deadlock_sdk_OnGameStateChanged_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityAcceptInput_Register __plugify_plugin_deadlock_sdk_OnEntityAcceptInput_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityAcceptInput_Unregister __plugify_plugin_deadlock_sdk_OnEntityAcceptInput_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnNpcSelectSchedule_Register __plugify_plugin_deadlock_sdk_OnNpcSelectSchedule_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnNpcSelectSchedule_Unregister __plugify_plugin_deadlock_sdk_OnNpcSelectSchedule_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityFireOutput_Register __plugify_plugin_deadlock_sdk_OnEntityFireOutput_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnEntityFireOutput_Unregister __plugify_plugin_deadlock_sdk_OnEntityFireOutput_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnProcessUsercmds_Register __plugify_plugin_deadlock_sdk_OnProcessUsercmds_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnProcessUsercmds_Unregister __plugify_plugin_deadlock_sdk_OnProcessUsercmds_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnAbilityThink_Register __plugify_plugin_deadlock_sdk_OnAbilityThink_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnAbilityThink_Unregister __plugify_plugin_deadlock_sdk_OnAbilityThink_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnAddModifier_Register __plugify_plugin_deadlock_sdk_OnAddModifier_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnAddModifier_Unregister __plugify_plugin_deadlock_sdk_OnAddModifier_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnHeroInitialized_Register __plugify_plugin_deadlock_sdk_OnHeroInitialized_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnHeroInitialized_Unregister __plugify_plugin_deadlock_sdk_OnHeroInitialized_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnGameEvent_Register __plugify_plugin_deadlock_sdk_OnGameEvent_Register = nullptr;
+
+plugify_plugin_deadlock_sdk::_OnGameEvent_Unregister __plugify_plugin_deadlock_sdk_OnGameEvent_Unregister = nullptr;
+
+plugify_plugin_deadlock_sdk::_HudAnnounce __plugify_plugin_deadlock_sdk_HudAnnounce = nullptr;
+
+plugify_plugin_deadlock_sdk::_HudAnnounceAll __plugify_plugin_deadlock_sdk_HudAnnounceAll = nullptr;
+
